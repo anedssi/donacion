@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard/reportes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-select placeholder="Selecionar" [(ngModel)]="estado" (ionChange)="event($event)">
+      <ion-select-option value="En Proceso">En Proceso</ion-select-option>
+      <ion-select-option value="Entregado">Entregado</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let item of dis">
+      <ion-avatar slot="start">
+        <img [src]="item.photoURL">
+      </ion-avatar>
+      <ion-label>
+        <h3>Tipo de Donación: {{ item.tipodonacion }}</h3>
+        <h5>Fecha: {{ item.date }}</h5>
+        <h5>Albergue en donde Entregar: {{ item.entraga }}</h5>
+        <h5>Dirección: {{ item.direccion }}</h5>
+        <p>Descripción: {{ item.detalle }}</p>
+        <p>Estado: {{ item.estadoentrega }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginform">
+    <div class="center">
+      <div class="body">
+      </div>
+    </div>
+      <ion-item lines="full">
+        <ion-label position="floating">
+          Correo
+          <p *ngIf="isValid('email')"> {{ mensajes }}</p>
+        </ion-label>
+        <ion-input type="text" formControlName="email" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">
+          Contraseña
+          <p *ngIf="isValid('password')"> {{ mensajes }}</p>
+        </ion-label>
+        <ion-input type="password"  formControlName="password" required></ion-input>
+      </ion-item>
+      <br>
+      <ion-row>
+        <ion-col>
+        <ion-button type="submit" [disabled]="loginform.invalid" (click)="logIn()" expand="block">Ingresar</ion-button>
+        </ion-col>
+      </ion-row>
+  </form>
+</ion-content>

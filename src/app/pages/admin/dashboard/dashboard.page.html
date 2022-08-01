@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/donacion/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Administración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card button [routerLink]="['/dashboard/donaciones']">
+          <ion-card-content>
+            <img src="./../../../assets/alimentos.png" alt="" sizes="" srcset="">
+            <h5>Donaciones</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button [routerLink]="['/dashboard/alberges']">
+          <ion-card-content>
+            <img src="./../../../assets/hallazgo.png" alt="" sizes="" srcset="">
+            <h5>Lugares</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button [routerLink]="['/dashboard/tipodonacion']">
+          <ion-card-content>
+            <img src="./../../../assets/mascota.png" alt="" sizes="" srcset="">
+            <h5>Tipo de Donaciones</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button [routerLink]="['/dashboard/usuarios']">
+          <ion-card-content>
+            <img src="./../../../assets/profile.png" alt="" sizes="" srcset="">
+            <h5>Usuario</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button>
+          <ion-card-content [routerLink]="['/dashboard/reportes']">
+            <img src="./../../../assets/admin.png" alt="" sizes="" srcset="">
+            <h5>Reportes</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Veridicar-email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <h2>Email de Verificación</h2>
+      <p>
+        Verifique su correo electrónico y haga clic en el enlace para verificar su dirección de correo electrónico.
+      </p>
+    </ion-row>
+    <div *ngIf="isartive">
+      <ion-button type="submit" (click)="authScv.SendVerificationMail()" expand="block">
+        Reenviar correo electrónico de verificación
+      </ion-button>
+    </div>
+    <ion-button type="submit" color="success" (click)="verificate()" expand="block">
+      Continuar
+    </ion-button>
+  </ion-grid>
+</ion-content>

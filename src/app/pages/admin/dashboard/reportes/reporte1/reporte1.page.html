@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard/reportes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Fecha Inicial</ion-label>
+      <ion-input [(ngModel)]="preDate" (change)="event($event)" type="date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha Final</ion-label>
+      <ion-input [(ngModel)]="postDate" (change)="event($event)" type="date"></ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let item of dis">
+        <ion-avatar slot="start">
+          <img [src]="item.photoURL">
+        </ion-avatar>
+        <ion-label>
+          <h3>Tipo de Donación: {{ item.tipodonacion }}</h3>
+          <h5>Fecha: {{ item.date }}</h5>
+          <h5>Albergue en donde Entregar: {{ item.entraga }}</h5>
+          <h5>Dirección: {{ item.direccion }}</h5>
+          <p>Descripción: {{ item.detalle }}</p>
+          <p>Estado: {{ item.estadoentrega }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-content>

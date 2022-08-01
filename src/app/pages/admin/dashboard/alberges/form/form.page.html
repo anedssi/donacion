@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard/alberges"></ion-back-button>
+    </ion-buttons>
+    <ion-title>form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <form [formGroup]="lugarfoms">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Entrega</ion-label>
+        <ion-input placeholder="entrega" formControlName="entrega" type="text" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button color="success" expand="block" (click)="save()">Guardar</ion-button>
+  </form>
+</ion-content>

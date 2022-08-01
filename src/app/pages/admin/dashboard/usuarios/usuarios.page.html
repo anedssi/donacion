@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of user">
+      <ion-list>
+        <h3>Nombre: {{ item.displayName }}</h3>
+        <h4>Email: {{ item.email }}</h4>
+        <h5>Admin: {{ item.admin }}</h5>
+      </ion-list>
+      <a slot="end" [routerLink]="['/dashboard/usuarios/form', item.id]"><ion-icon name="create-outline" color="warning"></ion-icon></a>
+      <a slot="end" ><ion-icon name="trash-outline" color="danger" (click)="presentAlert(item.id)"></ion-icon></a>
+    </ion-item>
+  </ion-list>
+</ion-content>

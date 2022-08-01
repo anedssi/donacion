@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      USUARIO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="userfoms">
+    <ion-list>
+      <div class="cent">
+        <ion-avatar vertical="center" horizontal="start" slot="fixed">
+          <img [src]="uelphoto">
+        </ion-avatar>
+      </div>
+      <div class="dv">
+        <ion-input class="cl"  type="file" accept=".png, .jpg, .jpeg" (change)="newImagen($event.target.files)"></ion-input>
+      </div>
+      <div *ngIf="percentageVal | async as percentage">
+        Progress: {{ percentage | number }}%
+        <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
+      </div>
+      <div *ngIf="trackSnapshot | async as snap">
+        File size: {{ snap.totalBytes | formatFileSize }} Data transfered: {{
+        snap.bytesTransferred | formatFileSize }}
+      </div>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="displayName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Verificado</ion-label>
+        <ion-checkbox checked="true" disabled></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Usuario</ion-label>
+        <ion-checkbox checked="true" disabled></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" (click)="create()">Guardar</ion-button>
+  </form>
+  <br>
+  <ion-button type="submit" (click)="authScv.SignOut()" color="danger" expand="block">Salir</ion-button>
+</ion-content>

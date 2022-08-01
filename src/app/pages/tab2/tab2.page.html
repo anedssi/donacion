@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Donaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br>
+  <ion-button expand="block" [routerLink]="['/donacion/tabs/tab1/newdonacion']">¿ Has Una Donación ?</ion-button>
+  <br>
+  <ion-list-header>Mis Donaciones</ion-list-header>
+  <ion-item *ngFor="let item of filtre" lines="none">
+    <ion-card>
+      <ion-img [src]="item.photoURL"></ion-img>
+      <ion-card-header>
+        <ion-icon *ngIf="item.isfavorite" name="star-outline"></ion-icon>
+        <ion-card-subtitle>Tipo de Donación:</ion-card-subtitle>
+        <ion-card-title>{{ item.tipodonacion }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle>Descripción:</ion-card-subtitle>
+        {{ item.detalle }}
+        <ion-card-subtitle>Fecha: {{ item.date }}</ion-card-subtitle>
+        <ion-card-subtitle>Donde Recibir: {{ item.entrega }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-content>

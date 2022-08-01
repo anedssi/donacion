@@ -1,0 +1,32 @@
+
+ion-toolbar{
+  height: 50px;
+}
+
+ion-title{
+  color: white;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+img{
+  height: 50%;
+  width: 50%;
+  text-align: center;
+}
+
+ion-card{
+  text-align: center;
+
+}
+
+h5{
+  color: rgb(46, 134, 193 );
+  font-weight: bold;
+}
+
+ion-content.background{
+  --background: url('./../../../assets/LOGO.png') 50% 60%/80% 60% no-repeat;
+}

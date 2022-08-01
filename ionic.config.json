@@ -1,0 +1,8 @@
+{
+  "name": "donacion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "5a124858"
+}

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard/donaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>from</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="doancionfoms">
+    <div class="cent">
+      <ion-avatar vertical="center" horizontal="start" slot="fixed">
+        <img [src]="urlphoto">
+      </ion-avatar>
+    </div>
+    <div class="dv">
+      <ion-input class="cl"  type="file" accept=".png, .jpg, .jpeg" (change)="newImagen($event.target.files)"></ion-input>
+    </div>
+    <div *ngIf="percentageVal | async as percentage">
+      Progress: {{ percentage | number }}%
+      <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
+    </div>
+    <div *ngIf="trackSnapshot | async as snap">
+      File size: {{ snap.totalBytes | formatFileSize }} Data transfered: {{
+      snap.bytesTransferred | formatFileSize }}
+    </div>
+    <ion-item>
+      <ion-label position="stacked">Tipo de Donación</ion-label>
+      <ion-select placeholder="Selecionar" formControlName="tipodonacion" required>
+        <ion-select-option *ngFor="let tipo of tipodonacion" [value]="tipo.tipo">{{ tipo.tipo }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha</ion-label>
+      <ion-input placeholder="Enter Input" formControlName="date" type="date" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" required>Entrega</ion-label>
+      <ion-select placeholder="Selecionar" formControlName="entrega">
+        <ion-select-option *ngFor="let l of lugar" [value]="l.entrega">{{ l.entrega}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Dirección</ion-label>
+      <ion-input placeholder="Dirección" formControlName="direccion" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-textarea placeholder="Ingrese la descripción..." formControlName="detalle" required></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Agregar como favorito</ion-label>
+      <ion-checkbox checked="false" formControlName="isfavorite"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Estado</ion-label>
+      <ion-select placeholder="Selecionar" formControlName="estadoentrega">
+        <ion-select-option value="En Proceso">En Proceso</ion-select-option>
+        <ion-select-option value="Entregado">Entregado</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button color="success" expand="block" (click)="save()">Guardar</ion-button>
+  </form>
+</ion-content>

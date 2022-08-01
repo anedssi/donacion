@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/dashboard/usuarios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userfoms">
+    <ion-list>
+      <div class="cent">
+        <ion-avatar vertical="center" horizontal="start" slot="fixed">
+          <img [src]="uelphoto">
+        </ion-avatar>
+      </div>
+      <div class="dv">
+        <ion-input class="cl"  type="file" accept=".png, .jpg, .jpeg" (change)="newImagen($event.target.files)"></ion-input>
+      </div>
+      <div *ngIf="percentageVal | async as percentage">
+        Progress: {{ percentage | number }}%
+        <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
+      </div>
+      <div *ngIf="trackSnapshot | async as snap">
+        File size: {{ snap.totalBytes | formatFileSize }} Data transfered: {{
+        snap.bytesTransferred | formatFileSize }}
+      </div>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="displayName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Verificado</ion-label>
+        <ion-checkbox formControlName="emailVerified" ></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Adimistración</ion-label>
+        <ion-checkbox formControlName="admin" ></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" color="success" (click)="create()">Guardar</ion-button>
+  </form>
+</ion-content>

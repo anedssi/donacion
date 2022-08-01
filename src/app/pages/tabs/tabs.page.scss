@@ -1,0 +1,21 @@
+ion-tab-bar{
+  margin: 10px;
+  background-color: azure;
+  border: solid 2px rgb(46, 134, 193);
+  border-radius: 30px;
+}
+
+ion-tab-button{
+  color: rgb(46, 134, 193);
+}
+
+
+ion-tab-button:active{
+  color:  black;
+}
+
+
+ion-tab-button:hover{
+  color: rgb(25, 73, 177);
+}
+

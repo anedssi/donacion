@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar color="primary">
+    <ion-title>
+      Angelitos con Cola
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card button [routerLink]="['/donacion/tabs/tab1/newdonacion']">
+          <ion-card-content>
+            <img src="./../../../assets/alimentos.png" alt="" sizes="" srcset="">
+            <h5>Donación</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button [routerLink]="['/donacion/tabs/tab1/informacion']">
+          <ion-card-content>
+            <img src="./../../../assets/profile.png" alt="" sizes="" srcset="">
+            <h5>Información</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button [routerLink]="['/donacion/tabs/tab1/info']">
+          <ion-card-content>
+            <img src="./../../../assets/mascota.png" alt="" sizes="" srcset="">
+            <h5>Acerca de</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
